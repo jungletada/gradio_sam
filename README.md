@@ -1,15 +1,16 @@
 # Interactive SAM Demo with Gradio 交互式SAM
 
 This is a demo application on Segment Anything Model with user point prompts. 
+
 一个带有用户点击的Segment Anything Model的演示应用程序。
 
 ![Main Image](./assets/main_example.png)
 
-Segment Anything Model ([SAM](https://github.com/facebookresearch/segment-anything)) is a segmentation foundation model recently released by Facebook Research, capable of segmenting literally anything in an image with remarkable accuracy. Its basic function is to segment objects indicated by user prompts such as points, boxes, and masks.
+- Segment Anything Model ([SAM](https://github.com/facebookresearch/segment-anything)) is a segmentation foundation model recently released by Facebook Research, capable of segmenting literally anything in an image with remarkable accuracy. Its basic function is to segment objects indicated by user prompts such as points, boxes, and masks.
 
 Segment Anything Model ([SAM](https://github.com/facebookresearch/segment-anything))是Facebook Research最近发布的一个分割基础模型，能够以惊人的精度分割图像中的任何东西。它的基本功能是分割由用户提示(如点、框和掩码)指示的对象。
 
-Gradio, a machine learning tool for building UIs, has recently added support for [getting image coordinates of mouse clicks](https://github.com/gradio-app/gradio/pull/3786), which is utilized in this application.
+- Gradio, a machine learning tool for building UIs, has recently added support for [getting image coordinates of mouse clicks](https://github.com/gradio-app/gradio/pull/3786), which is utilized in this application.
 Gradio是一个用于构建UI的机器学习工具，最近增加了对[获取鼠标点击的图像坐标](https://github.com/gradio-app/gradio/pull/3786)的支持，在本应用程序中使用。
 
 ## Main functions 主要功能
