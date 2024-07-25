@@ -12,9 +12,6 @@ MODEL_DICT = dict(
     vit_b='https://dl.fbaipublicfiles.com/segment_anything/sam_vit_b_01ec64.pth',  # yapf: disable  # noqa
 )
 
-
-
-
 def find_border(mask):
     top = np.argmax(mask.sum(axis=1) > 0)   # 上边界
     bottom = len(mask) - np.argmax(mask[::-1].sum(axis=1) > 0)# 下边界
@@ -36,7 +33,6 @@ def get_crop_image_mask(sample_image_np, mask):
     cropped_image = sample_image_np[top:bottom, left:right]
     # 保存裁剪后的结果为带有透明度的PNG格式
     return cropped_image
-
 
 def show_points(coords: np.ndarray, labels: np.ndarray,
                 image: np.ndarray) -> np.ndarray:
@@ -83,10 +79,6 @@ def setup_model() -> SamPredictor:
     return predictor
 
 
-
-
-
-
 def resize_with_aspect_ratio(image, max_length=500):
     # 获取图像的高度和宽度
     height, width = image.shape[:2]
@@ -103,7 +95,6 @@ def resize_with_aspect_ratio(image, max_length=500):
     resized_image = cv2.resize(image, (new_width, new_height), interpolation=cv2.INTER_AREA)
     
     return resized_image
-
 
 
 def create_canvas_and_transform_image(img_rgba, canvas_size, scale_factor, rotation_angle, translation_xy):
@@ -127,7 +118,6 @@ def create_canvas_and_transform_image(img_rgba, canvas_size, scale_factor, rotat
     # Step 5: Generate a mask from the alpha channel
     mask = transformed_img[:, :, 3] == 0
     return transformed_img, mask
-
 
 
 def show_mask(height:int, width:int, mask: np.ndarray,
@@ -177,12 +167,9 @@ def show_mask(height:int, width:int, mask: np.ndarray,
     # image = cv2.addWeighted(image, 0.0, mask_image.astype('uint8'), 1.0, 0)
     # return image
 
-
-
 predictor = setup_model()
 
 with gr.Blocks() as demo:
-
     # Define the UI
     mask_level = gr.Slider(minimum=0, maximum=2, value=1, step=1,\
                            label='Masking level',
@@ -190,7 +177,6 @@ with gr.Blocks() as demo:
 
     canvas_h = gr.Number(label="Enter Height")
     canvas_w = gr.Number(label="Enter Width")
-
 
     # with gr.Row():
     input_img = gr.Image(label='Input')
